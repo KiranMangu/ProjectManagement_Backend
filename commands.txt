@@ -1,0 +1,17 @@
+npm install
+ng add @angular/material
+ng g c home
+ng g c AddUser
+ng g c ViewUser
+
+ng g c AddProject
+ng g c ViewProject
+ng g c ProjectForm
+
+ng g c AddTask
+ng g c ViewTask
+ng g c TaskForm
+
+npm i --save @angular/material
+npm install --save @angular/cdk @angular/animations
+C:\...\app> ng g c home

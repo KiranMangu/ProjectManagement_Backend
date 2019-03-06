@@ -1,0 +1,6 @@
+{
+    "Serverconfig": {
+        "port": "3031",
+        "mongoDBURL": "mongodb://username:user123@ds157735.mlab.com:57735/projectmanagement"
+    }
+}
