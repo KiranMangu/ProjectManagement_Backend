@@ -2,9 +2,7 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import cors from 'cors';
 import * as config from './config/config.js' // MyComments: To load the config.js
-import {
-    dbconnection
-} from './model/db';
+import * as db from './model/db';
 import {
     userRouter
 } from './routes/user.router';
@@ -28,7 +26,13 @@ app.get('/api', (req, res) => {
     res.send(resString);
 });
 
-dbconnection();
+// db.dbconnection()
+//     .then((res) => {
+//         console.log('MongoDB: calling connection ');
+//     })
+//     .catch((err) => {
+//         console.log('MongoDB: Connection call failed: ' + err);
+//     });
 
 app.use('/api/users', userRouter);
 app.use('/app/tasks', taskRouter);
@@ -36,3 +40,7 @@ app.use('/app/tasks', taskRouter);
 app.listen(process.env.port, () => {
     console.log('Express: listening on port:' + process.env.port);
 });
+
+export {
+    app
+};

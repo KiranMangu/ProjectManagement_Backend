@@ -4,7 +4,7 @@
   "description": "Middle layer - API call",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha --recurssive --exit --require @babel/register",
     "dev": "babel-watch server.js"
   },
   "repository": {
@@ -28,8 +28,13 @@
     "@babel/cli": "^7.2.3",
     "@babel/core": "^7.3.4",
     "@babel/preset-env": "^7.3.4",
+    "@babel/register": "^7.0.0",
     "babel-watch": "^7.0.0",
+    "chai": "^4.2.0",
     "jasmine": "^3.3.1",
-    "nyc": "^13.3.0"
+    "mocha": "^6.0.2",
+    "mockgoose": "^8.0.1",
+    "nyc": "^13.3.0",
+    "supertest": "^3.4.2"
   }
 }

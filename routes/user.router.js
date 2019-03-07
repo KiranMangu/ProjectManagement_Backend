@@ -17,9 +17,9 @@ userRouter.get('/:id', (req, res) => {
 });
 
 // Update by user Id
-userRouter.post('/update', (req, res) => {
+userRouter.put('/update/:id', (req, res) => {
     // TODO: Check if update can be done only for changed fields though all fields are sent with outofbox feature on mongoose
-    let id = req.body.id;
+    let id = req.params.id;
     // console.log(req.body.firstName);
     // console.log(req.body.lastName);
     // console.log(req.body.employeeId);

@@ -1,4 +1,5 @@
 import User from '../model/user.model';
+import mongoose from 'mongoose';
 
 function getAllUsers(req, res) {
     const resString = 'verb:get, uri:/users'
@@ -32,6 +33,8 @@ function getUserById(id, req, res) {
 }
 
 function updateUserById(id, req, res) {
+    console.log('Test: ' + id);
+    // console.log('Test: ' + mongoose.Types.ObjectId(id));
     User.findOneAndUpdate({
         _id: id
     }, {
@@ -41,7 +44,7 @@ function updateUserById(id, req, res) {
     }, (error, user) => {
         if (error) {
             res.status(400).json({
-                'user': 'Unable to update user by id'
+                'user': 'Unable to update user by id' + error
             });
         } else {
             res.status(200).send(user);
@@ -96,7 +99,7 @@ function updateUserProjectTask(req, res) {
     });
 }
 
-function updateUserProject (req, res){
+function updateUserProject(req, res) {
     User.findByIdAndUpdate({
         _id: req.body.userId
     }, {
