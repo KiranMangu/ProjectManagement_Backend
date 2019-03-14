@@ -8,6 +8,7 @@ function getAllProjects(req, res) {
                 'Project': 'Failed getting projects'
             });
         } else {
+            console.log(projects);
             res.status(200).send(projects);
         }
     });
@@ -33,12 +34,14 @@ function createProject(req, res) {
     newProject.save()
         .then(project => {
             res.status(200).json({
-                'Project': 'Successfully created project'
+                'Project': 'Successfully created project',
+                '_id': project._id
             });
         })
         .catch(error => {
+            console.log(error);
             res.status(400).json({
-                'Project': 'Failed creating a project'
+                'Project': 'Failed creating a project' + error
             });
         })
 }
@@ -47,22 +50,22 @@ function updateProjectById(req, res) {
     Project.findByIdAndUpdate({
         _id: req.body.id
     }, {
-        project: req.body.project,
-        startDate: req.body.startDate,
-        endDate: req.body.endDate,
-        priority: req.body.priority
-    }, (error, project) => {
-        if (error) {
-            res.status(400).json({
-                'Project': 'Failed updating project by Id'
-            });
-        } else {
-            Usercontroller.updateUserProject(req);
-            res.status(200).json({
-                'Project': 'Successfully updated project by Id'
-            });
-        }
-    });
+            project: req.body.project,
+            startDate: req.body.startDate,
+            endDate: req.body.endDate,
+            priority: req.body.priority
+        }, (error, project) => {
+            if (error) {
+                res.status(400).json({
+                    'Project': 'Failed updating project by Id'
+                });
+            } else {
+                Usercontroller.updateUserProject(req);
+                res.status(200).json({
+                    'Project': 'Successfully updated project by Id'
+                });
+            }
+        });
 }
 
 export {

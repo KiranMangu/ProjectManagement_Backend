@@ -4,9 +4,7 @@ import * as ProjectController from '../controller/project.controller';
 const projectRouter = express.Router();
 
 projectRouter.get('/', (req, res) => {
-    const resString = 'verb:get, uri:/projects';
-    console.log(resString);
-    res.send(resString);
+    console.log('Projects Get all ');
     ProjectController.getAllProjects(req, res);
 });
 

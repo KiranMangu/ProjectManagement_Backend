@@ -14,7 +14,7 @@ const projectSchema = new  Schema({
         type: Date,
         // required: true
     },
-    EndDate: {
+    endDate: {
         type: Date,
         // required: true
     },

@@ -72,7 +72,7 @@ function updateTaskById(req, res) {
             });
         } else {
             // MyComments: Update user details with project and Task
-            UserController.updateUserProjectTask(req, res);
+            UserController.updateUserTask(req, res);
             res.status(200).json({
                 'Task': 'Successfully updated task detail'
             })

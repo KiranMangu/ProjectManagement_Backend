@@ -40,9 +40,12 @@ userRouter.post('/create', (req, res) => {
     UserContorller.createUser(newUser, req, res)
 });
 
-userRouter.post('/update/references', (req, res) => {
-    let _id = req.body.id;
-    UserContorller.updateUserProjectTask(id, req, res)
+userRouter.post('/update/userproject', (req, res) => {
+    UserContorller.updateUserProject(req, res)
+});
+
+userRouter.post('/update/usertask', (req, res) => {
+    UserContorller.updateUserTask(req, res)
 });
 
 export {

@@ -81,9 +81,9 @@ function createUser(newUser, req, res) {
         });
 }
 
-function updateUserProjectTask(req, res) {
+function updateUserTask(req, res) {
     User.findByIdAndUpdate({
-        _id: req.body.userId
+        _id: req.body._id
     }, {
         projectId: req.body.projectId,
         taskId: req.body.taskId
@@ -102,7 +102,7 @@ function updateUserProjectTask(req, res) {
 
 function updateUserProject(req, res) {
     User.findByIdAndUpdate({
-        _id: req.body.userId
+        _id: req.body._id
     }, {
         projectId: req.body.projectId,
     }, (error, user) => {
@@ -124,6 +124,6 @@ export {
     updateUserById,
     deleteUserById,
     createUser,
-    updateUserProjectTask,
+    updateUserTask,
     updateUserProject
 }
