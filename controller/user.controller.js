@@ -47,6 +47,7 @@ function updateUserById(id, req, res) {
                 'user': 'Unable to update user by id' + error
             });
         } else {
+            console.log('Update');
             res.status(200).send(user);
         }
     });

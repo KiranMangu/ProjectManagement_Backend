@@ -15,6 +15,7 @@ projectRouter.get('/:id', (req, res) => {
 });
 
 projectRouter.post('/create', (req, res) => {
+    console.log('Create');
     ProjectController.createProject(req, res);
 });
 

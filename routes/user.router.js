@@ -17,9 +17,9 @@ userRouter.get('/:id', (req, res) => {
 });
 
 // Update by user Id
-userRouter.put('/update/:id', (req, res) => {
+userRouter.put('/update', (req, res) => {
     // TODO: Check if update can be done only for changed fields though all fields are sent with outofbox feature on mongoose
-    let id = req.params.id;
+    let id = req.body._id;
     // console.log(req.body.firstName);
     // console.log(req.body.lastName);
     // console.log(req.body.employeeId);
@@ -28,16 +28,16 @@ userRouter.put('/update/:id', (req, res) => {
 });
 
 // Delete user by Id
-userRouter.delete('/delete', (req, res) => {
-    let id = req.body.id;
+userRouter.delete('/delete/:id', (req, res) => {
+    let id = req.params.id;
     UserContorller.deleteUserById(id, req, res);
 });
 
 // Create User
 userRouter.post('/create', (req, res) => {
     let newUser = new User(req.body);
-    console.log(req.body);
-    UserContorller.createUser(newUser, req, res);
+    // console.log(req.body);
+    UserContorller.createUser(newUser, req, res)
 });
 
 userRouter.post('/update/references', (req, res) => {

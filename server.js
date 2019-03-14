@@ -10,6 +10,14 @@ import {
     taskRouter
 } from './routes/task.router.js';
 
+import{
+    projectRouter
+} from './routes/project.router';
+
+import{
+    parentTask
+} from './routes/parentTask.router';
+
 const app = express();
 app.use(bodyParser.json());
 app.use(cors());
@@ -26,16 +34,19 @@ app.get('/api', (req, res) => {
     res.send(resString);
 });
 
-// db.dbconnection()
-//     .then((res) => {
-//         console.log('MongoDB: calling connection ');
-//     })
-//     .catch((err) => {
-//         console.log('MongoDB: Connection call failed: ' + err);
-//     });
+db.dbconnection()
+    .then((res) => {
+        console.log('MongoDB: calling connection ');
+    })
+    .catch((err) => {
+        console.log('MongoDB: Connection call failed: ' + err);
+    });
 
 app.use('/api/users', userRouter);
-app.use('/app/tasks', taskRouter);
+app.use('/api/tasks', taskRouter);
+app.use('/api/projects', projectRouter);
+// app.use('/app/parentTask', parentTask);
+
 // console.log(process.env.port);
 app.listen(process.env.port, () => {
     console.log('Express: listening on port:' + process.env.port);

@@ -12,11 +12,11 @@ const projectSchema = new  Schema({
     },
     startDate: {
         type: Date,
-        required: true
+        // required: true
     },
     EndDate: {
         type: Date,
-        required: true
+        // required: true
     },
     priority: {
         type: Number,

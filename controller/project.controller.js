@@ -2,7 +2,6 @@ import Project from '../model/project.model';
 import Usercontroller from '../controller/user.controller';
 
 function getAllProjects(req, res) {
-
     Project.find({}, (error, projects) => {
         if (error) {
             res.status(400).json({
