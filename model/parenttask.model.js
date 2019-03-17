@@ -2,14 +2,13 @@ import mongoose from 'mongoose';
 
 const Schema = mongoose.Schema;
 const parenttaskSchema = new Schema({
-    parentId: {
-        type: Schema.Types.ObjectId,
-        ref: 'Task'
-    },
+    // parentId: {
+    //     type: Schema.Types.ObjectId,
+    // },
     parentTask: {
         type: String,
         required: true
     }
 });
 
-export default mongoose.model('parenttask', parenttaskSchema);
+export default mongoose.model('Parenttask', parenttaskSchema);

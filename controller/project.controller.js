@@ -48,19 +48,21 @@ function createProject(req, res) {
 
 function updateProjectById(req, res) {
     Project.findByIdAndUpdate({
-        _id: req.body.id
+        _id: req.body._id
     }, {
             project: req.body.project,
             startDate: req.body.startDate,
             endDate: req.body.endDate,
-            priority: req.body.priority
+            priority: req.body.priority,
+            manager: req.body.manager
         }, (error, project) => {
             if (error) {
+                console.log('Error' + error);
                 res.status(400).json({
-                    'Project': 'Failed updating project by Id'
+                    'Project': 'Failed updating project by Id' + error
                 });
             } else {
-                Usercontroller.updateUserProject(req);
+                // Usercontroller.updateUserProject(req);
                 res.status(200).json({
                     'Project': 'Successfully updated project by Id'
                 });

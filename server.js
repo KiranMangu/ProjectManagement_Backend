@@ -10,12 +10,12 @@ import {
     taskRouter
 } from './routes/task.router.js';
 
-import{
+import {
     projectRouter
 } from './routes/project.router';
 
-import{
-    parentTask
+import {
+    parentTaskRouter
 } from './routes/parentTask.router';
 
 const app = express();
@@ -45,6 +45,7 @@ db.dbconnection()
 app.use('/api/users', userRouter);
 app.use('/api/tasks', taskRouter);
 app.use('/api/projects', projectRouter);
+app.use('/api/parenttask', parentTaskRouter);
 // app.use('/app/parentTask', parentTask);
 
 // console.log(process.env.port);

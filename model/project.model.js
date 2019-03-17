@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 
 const Schema = mongoose.Schema;
-const projectSchema = new  Schema({
+const projectSchema = new Schema({
     // _id = project_id
     // projectId: {
     //     type: Schema.Types.ObjectId
@@ -21,6 +21,11 @@ const projectSchema = new  Schema({
     priority: {
         type: Number,
         required: true
+    },
+    manager: {
+        type: Schema.Types.ObjectId,
+        ref: 'User',
+        required: false
     }
 });
 

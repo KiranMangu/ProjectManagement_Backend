@@ -17,7 +17,8 @@ projectRouter.post('/create', (req, res) => {
     ProjectController.createProject(req, res);
 });
 
-projectRouter.post('/update', (req, res) => {
+projectRouter.put('/update', (req, res) => {
+    console.log('Project Put');
     ProjectController.updateProjectById(req, res);
 });
 

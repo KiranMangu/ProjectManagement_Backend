@@ -40,6 +40,10 @@ userRouter.post('/create', (req, res) => {
     UserContorller.createUser(newUser, req, res)
 });
 
+userRouter.post('/update/userprojecttask', (req, res) => {
+    UserContorller.updateUserProjectTask(req, res)
+});
+
 userRouter.post('/update/userproject', (req, res) => {
     UserContorller.updateUserProject(req, res)
 });
@@ -47,6 +51,10 @@ userRouter.post('/update/userproject', (req, res) => {
 userRouter.post('/update/usertask', (req, res) => {
     UserContorller.updateUserTask(req, res)
 });
+
+// userRouter.get('/project/:id', (req, res) => {
+//     UserContorller.getUserByProjectId(req.param.id, res);
+// });
 
 export {
     userRouter

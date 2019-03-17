@@ -38,19 +38,19 @@ function updateUserById(id, req, res) {
     User.findOneAndUpdate({
         _id: id
     }, {
-        firstName: req.body.firstName,
-        lastName: req.body.lastName,
-        employeeId: req.body.employeeId
-    }, (error, user) => {
-        if (error) {
-            res.status(400).json({
-                'user': 'Unable to update user by id' + error
-            });
-        } else {
-            console.log('Update');
-            res.status(200).send(user);
-        }
-    });
+            firstName: req.body.firstName,
+            lastName: req.body.lastName,
+            employeeId: req.body.employeeId
+        }, (error, user) => {
+            if (error) {
+                res.status(400).json({
+                    'user': 'Unable to update user by id' + error
+                });
+            } else {
+                console.log('Update');
+                res.status(200).send(user);
+            }
+        });
 }
 
 function deleteUserById(id, req, res) {
@@ -85,45 +85,80 @@ function updateUserTask(req, res) {
     User.findByIdAndUpdate({
         _id: req.body._id
     }, {
-        projectId: req.body.projectId,
-        taskId: req.body.taskId
-    }, (error, user) => {
-        if (error) {
-            res.status(400).json({
-                'user': 'Failed updating project, task details'
-            });
-        } else {
-            res.status(200).json({
-                'User': 'Successfully updated project, task details'
-            });
-        }
-    });
+            projectId: req.body.projectId,
+            taskId: req.body.taskId
+        }, (error, user) => {
+            if (error) {
+                res.status(400).json({
+                    'user': 'Failed updating project, task details'
+                });
+            } else {
+                res.status(200).json({
+                    'User': 'Successfully updated project, task details'
+                });
+            }
+        });
+}
+
+function updateUserProjectTask(req, res) {
+    User.findByIdAndUpdate({
+        _id: req.body._id
+    }, {
+            projectId: req.body.projectId,
+            taskId: req.body.taskId
+        }, (error, user) => {
+            if (error) {
+                res.status(400).json({
+                    'user': 'Failed updating project'
+                });
+            } else {
+                res.status(200).json({
+                    'User': 'Successfully updated project'
+                });
+            }
+        });
 }
 
 function updateUserProject(req, res) {
     User.findByIdAndUpdate({
         _id: req.body._id
     }, {
-        projectId: req.body.projectId,
-    }, (error, user) => {
-        if (error) {
-            res.status(400).json({
-                'user': 'Failed updating project'
-            });
-        } else {
-            res.status(200).json({
-                'User': 'Successfully updated project'
-            });
-        }
-    });
+            projectId: req.body.projectId,
+        }, (error, user) => {
+            if (error) {
+                res.status(400).json({
+                    'user': 'Failed updating project'
+                });
+            } else {
+                res.status(200).json({
+                    'User': 'Successfully updated project'
+                });
+            }
+        });
 }
+
+// function getUserByProjectId(id, res) {
+//     User.find({
+//         projectId: id
+//     }, (error, user) => {
+//         if (error) {
+//             res.status(400).json({
+//                 'user': 'Unable to get user by id'
+//             });
+//         } else {
+//             res.status(200).send(user);
+//         }
+//     });
+// }
 
 export {
     getAllUsers,
     getUserById,
+    // getUserByProjectId,
     updateUserById,
     deleteUserById,
     createUser,
     updateUserTask,
-    updateUserProject
+    updateUserProject,
+    updateUserProjectTask
 }
