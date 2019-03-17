@@ -23,7 +23,7 @@ function getProjectById(req, res) {
                 'Project': 'Failed getting project by Id'
             });
         } else {
-            Usercontroller.updateUserProject(req);
+            // Usercontroller.updateUserProject(req);
             res.status(200).send(project);
         }
     });
