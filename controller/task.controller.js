@@ -30,11 +30,27 @@ function getTaskById(req, res) {
     });
 }
 
+function getAllTasksByProjectId(req, res) {
+    let projectId = req.params.id;
+    // console.log(projectId);
+    Task.find({
+        projectId: projectId
+    }, 'task', (error, task) => {
+        if (error) {
+            res.status(400).json({
+                'Tasks': 'Unable to get Task by Project Id' + error
+            });
+        } else {
+            res.status(200).send(task);
+        }
+    });
+}
+
 function createTask(req, res) {
     let newTask = new Task(req.body);
     newTask.save()
         .then(task => {
-            console.log(task._Id);
+            // console.log(task._Id);
             res.status(200).json({
                 'taskId': task._Id,
                 'Task': 'Successfully created a Task'
@@ -105,5 +121,6 @@ export {
     getTaskById,
     createTask,
     updateTaskById,
-    updateTaskStatusToComplete
+    updateTaskStatusToComplete,
+    getAllTasksByProjectId
 }

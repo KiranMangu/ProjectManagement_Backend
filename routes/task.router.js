@@ -32,7 +32,11 @@ taskRouter.post('/update', (req, res) => {
 //update status
 taskRouter.post('/updateTaskStatus', (req, res) => {
     TaskController.updateTaskStatusToComplete(req, res);
-})
+});
+
+taskRouter.get('/tasksByProjectId/:id', (req, res) => {
+    TaskController.getAllTasksByProjectId(req, res);
+});
 
 export {
     taskRouter

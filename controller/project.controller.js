@@ -8,7 +8,7 @@ function getAllProjects(req, res) {
                 'Project': 'Failed getting projects'
             });
         } else {
-            console.log(projects);
+            // console.log(projects);
             res.status(200).send(projects);
         }
     });
