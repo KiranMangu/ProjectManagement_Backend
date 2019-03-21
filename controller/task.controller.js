@@ -98,7 +98,7 @@ function updateTaskById(req, res) {
 
 function updateTaskStatusToComplete(req, res) {
     Task.findByIdAndUpdate({
-        _id: req.body.id
+        _id: req.body._id
     }, {
             status: 'Completed'
         }, (error, task) => {

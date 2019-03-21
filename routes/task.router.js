@@ -31,6 +31,7 @@ taskRouter.post('/update', (req, res) => {
 
 //update status
 taskRouter.post('/updateTaskStatus', (req, res) => {
+    console.log('UpdateStatus:' + JSON.stringify(req.body));
     TaskController.updateTaskStatusToComplete(req, res);
 });
 
