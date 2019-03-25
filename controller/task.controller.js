@@ -65,7 +65,8 @@ function createTask(req, res) {
 
 
 function updateTaskById(req, res) {
-    let id = req.body.id;
+    let id = req.body.taskId;
+    console.log(JSON.stringify('updatetask' + req.body));
     Task.findByIdAndUpdate({
         _id: id
     }, {
@@ -87,7 +88,7 @@ function updateTaskById(req, res) {
                 });
             } else {
                 // MyComments: Update user details with project and Task
-                UserController.updateUserTask(req, res);
+                // UserController.updateUserTask(req, res);
                 res.status(200).json({
                     'Task': 'Successfully updated task detail'
                 })

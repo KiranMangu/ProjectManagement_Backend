@@ -18,6 +18,22 @@ function createParentTask(req, res) {
         });
 }
 
+function updateParenTsk(req, res) {
+    ParentTask.findByIdAndUpdate({
+        _id: req.body.id
+    }, {
+            parentTask: req.body.parentTask
+        }, (error, parentTask) => {
+            if (error) {
+                res.status(400).json({
+                    'ParentTask': 'Failed getting Parent Task by Id'
+                });
+            } else {
+                res.status(200).send(parentTask);
+            }
+        });
+}
+
 function getAllParentTasks(req, res) {
     ParentTask.find({}, (error, parentTasks) => {
         if (error) {
@@ -66,5 +82,6 @@ export {
     getAllParentTasks,
     getParentTaskById,
     updateParentTaskById,
-    createParentTask
+    createParentTask,
+    updateParenTsk
 }

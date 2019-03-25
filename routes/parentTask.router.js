@@ -23,6 +23,10 @@ parentTaskRouter.post('/', (req, res) => {
     ParentTaskController.updateParentTaskById(req, res);
 });
 
+parentTaskRouter.post('/update', (req, res) => {
+    ParentTaskController.updateParenTsk(req, res);
+});
+
 export {
     parentTaskRouter
 };

@@ -24,9 +24,8 @@ taskRouter.post('/create', (req, res) => {
 });
 
 // update by Id
-taskRouter.post('/update', (req, res) => {
+taskRouter.put('/update', (req, res) => {
     TaskController.updateTaskById(req, res);
-
 });
 
 //update status

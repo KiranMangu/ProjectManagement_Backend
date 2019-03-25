@@ -4,7 +4,8 @@
   "description": "Middle layer - API call",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --recurssive --exit --require @babel/register",
+    "codecoverage":"nyc --timeout 0 mocha --recurssive --exit --require @babel/register",
+    "test": "mocha --timeout 0 --recurssive --exit --require @babel/register",
     "dev": "babel-watch server.js",
     "start": "babel-watch server.js",
     "runDocker": "node node_modules/babel-watch/babel-watch.js server.js"
