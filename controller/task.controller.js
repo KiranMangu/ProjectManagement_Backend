@@ -35,12 +35,13 @@ function getAllTasksByProjectId(req, res) {
     // console.log(projectId);
     Task.find({
         projectId: projectId
-    }, 'task', (error, task) => {
+    }, 'task, status', (error, task) => {
         if (error) {
             res.status(400).json({
                 'Tasks': 'Unable to get Task by Project Id' + error
             });
         } else {
+            // console.log('tasks: ' + task);
             res.status(200).send(task);
         }
     });
@@ -70,49 +71,49 @@ function updateTaskById(req, res) {
     Task.findByIdAndUpdate({
         _id: id
     }, {
-            task: req.body.task,
-            priority: req.body.priority,
-            startDate: req.body.startDate,
-            endDate: req.body.endDate,
-            status: req.body.status,
+        task: req.body.task,
+        priority: req.body.priority,
+        startDate: req.body.startDate,
+        endDate: req.body.endDate,
+        status: req.body.status,
 
-            //
-            // parentTask: req.params.parentTask,
-            // user: req.params.user,
-            // parentId: req.body.parentId,
-            // projectId: req.body.projectId,
-        }, (error, task) => {
-            if (error) {
-                res.status(400).json({
-                    'Task': 'Failed updating task details'
-                });
-            } else {
-                // MyComments: Update user details with project and Task
-                // UserController.updateUserTask(req, res);
-                res.status(200).json({
-                    'Task': 'Successfully updated task detail'
-                })
+        //
+        // parentTask: req.params.parentTask,
+        // user: req.params.user,
+        // parentId: req.body.parentId,
+        // projectId: req.body.projectId,
+    }, (error, task) => {
+        if (error) {
+            res.status(400).json({
+                'Task': 'Failed updating task details'
+            });
+        } else {
+            // MyComments: Update user details with project and Task
+            // UserController.updateUserTask(req, res);
+            res.status(200).json({
+                'Task': 'Successfully updated task detail'
+            })
 
-            }
-        });
+        }
+    });
 }
 
 function updateTaskStatusToComplete(req, res) {
     Task.findByIdAndUpdate({
         _id: req.body._id
     }, {
-            status: 'Completed'
-        }, (error, task) => {
-            if (error) {
-                res.status(400).json({
-                    'Task': 'Failed updating status as Completed'
-                });
-            } else {
-                res.status(200).json({
-                    'Task': 'Updated status as Completed'
-                });
-            }
-        });
+        status: 'Completed'
+    }, (error, task) => {
+        if (error) {
+            res.status(400).json({
+                'Task': 'Failed updating status as Completed'
+            });
+        } else {
+            res.status(200).json({
+                'Task': 'Updated status as Completed'
+            });
+        }
+    });
 }
 
 
