@@ -3,7 +3,7 @@ import mongoose from 'mongoose';
 
 function getAllUsers(req, res) {
     const resString = 'verb:get, uri:/users'
-    console.log(resString);
+    // console.log(resString);
 
     User.find({}, (error, users) => {
         if (error) {
@@ -12,7 +12,7 @@ function getAllUsers(req, res) {
                 'user': 'Unable to get Users'
             });
         } else {
-            console.log('response');
+            // console.log('response');
             res.status(200).send(users);
         }
     });
@@ -33,7 +33,7 @@ function getUserById(id, req, res) {
 }
 
 function updateUserById(id, req, res) {
-    console.log('Test: ' + id);
+    // console.log('Test: ' + id);
     // console.log('Test: ' + mongoose.Types.ObjectId(id));
     User.findOneAndUpdate({
         _id: id

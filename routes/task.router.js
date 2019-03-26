@@ -6,7 +6,7 @@ const taskRouter = express.Router();
 // Get all Tasks 
 taskRouter.get('/', (req, res) => {
     const resString = 'verb:get, uri:/tasks';
-    console.log(resString);
+    // console.log(resString);
     // res.send(resString);
     TaskController.getAllTasks(req, res);
 

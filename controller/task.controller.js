@@ -66,7 +66,7 @@ function createTask(req, res) {
 
 function updateTaskById(req, res) {
     let id = req.body.taskId;
-    console.log(JSON.stringify('updatetask' + req.body));
+    // console.log(JSON.stringify('updatetask' + req.body));
     Task.findByIdAndUpdate({
         _id: id
     }, {
