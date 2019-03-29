@@ -19,7 +19,8 @@ const userschema = new Schema({
     },
     employeeId: {
         type: String,
-        required: true
+        required: true,
+		unique: true
     },
     projectId: {
         type: Schema.Types.ObjectId,

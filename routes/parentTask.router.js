@@ -11,7 +11,6 @@ parentTaskRouter.get('/', (req, res) => {
 });
 
 parentTaskRouter.post('/create', (req, res) => {
-    // console.log(req);
     ParentTaskController.createParentTask(req, res);
 });
 

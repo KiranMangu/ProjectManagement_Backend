@@ -2,16 +2,17 @@ import ParentTask from '../model/parenttask.model';
 
 function createParentTask(req, res) {
     let newParentTask = new ParentTask(req.body);
-    // console.log('newParentTask'+ JSON.stringify(req.body));
+    // console.log('newParentTask:'+ JSON.stringify(req.body));
     newParentTask.save()
         .then(task => {
+            // console.log('Inserted...')
             res.status(200).json({
                 'parenttask': task,
                 'ParentTask': 'Successfully save Parent Task'
             });
         })
         .catch(error => {
-            console.log(error);
+            console.log('error:' + error);
             res.status(400).json({
                 'ParentTask': 'Failed saving Parent Task ' + error
             })
